@@ -5,8 +5,25 @@ import { SearchOutlined } from "@mui/icons-material";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
+import { useState } from "react";
+import axios from "../../axios";
 
-const Chat = () => {
+const Chat = ({ messages }) => {
+  const [input, setInput] = useState("");
+
+  const sendMessage = async (e) => {
+    e.preventDefault();
+
+    await axios.post("/messages/new", {
+      message: input,   
+      name: "none",
+      timestamp: "just now",
+      received: true,
+    });
+
+    setInput("");
+  };
+
   return (
     <div className="chat">
       <div className="chat__header">
@@ -28,35 +45,19 @@ const Chat = () => {
       </div>
 
       <div className="chat__body">
-        <p className="chat__message-container">
-          <span className="chat__name">Aadarsh</span>
-          <div className="chat__message">
-            <span className="chat__message-message">This is a message</span>
-            <span className="chat__time">
-              {new Date().toLocaleTimeString().slice(0, 5)}
-            </span>
-          </div>
-        </p>
-
-        <p className="chat__message-container chat__receiver">
-          <span className="chat__name">Aadarsh</span>
-          <div className="chat__message">
-            <span className="chat__message-message">This is a message</span>
-            <span className="chat__time">
-              {new Date().toLocaleTimeString().slice(0, 5)}
-            </span>
-          </div>
-        </p>
-
-        <p className="chat__message-container">
-          <span className="chat__name">Aadarsh</span>
-          <div className="chat__message">
-            <span className="chat__message-message">This is a message</span>
-            <span className="chat__time">
-              {new Date().toLocaleTimeString().slice(0, 5)}
-            </span>
-          </div>
-        </p>
+        {messages.map((message) => (
+          <p
+            className={`chat__message-container ${
+              message.received && "chat__receiver"
+            }`}
+          >
+            <span className="chat__name">{message.name}</span>
+            <div className="chat__message">
+              <span className="chat__message-message">{message.message}</span>
+              <span className="chat__time">{message.timestamp}</span>
+            </div>
+          </p>
+        ))}
       </div>
 
       <div className="chat__input-container">
@@ -70,11 +71,15 @@ const Chat = () => {
         </IconButton>
         <form>
           <input
+            value={input}
             type="text"
             placeholder="Type a message"
             className="message__input"
+            onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit">send message</button>
+          <button onClick={sendMessage} type="submit">
+            send message
+          </button>
         </form>
 
         <IconButton>
