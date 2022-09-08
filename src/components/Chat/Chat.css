@@ -40,7 +40,17 @@
 .chat__body {
   background: url(https://i.pinimg.com/originals/e6/29/25/e62925d2af795db245dffbc42e05296b.png)
     no-repeat center center/cover;
-  height: 100%;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.chat__body::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+.chat__body::-webkit-scrollbar-thumb {
+  background-color: #374045;
 }
 
 .chat__message-container {
@@ -49,7 +59,7 @@
   gap: 4px;
   background-color: #202c33;
   padding: 10px;
-  max-width: 20rem;
+  width: fit-content;
   margin-left: 2rem;
   margin-top: 1.5rem;
   border-radius: 6px;
@@ -71,6 +81,7 @@
   display: flex;
   align-items: end;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .chat__time {
@@ -78,11 +89,47 @@
   color: #ffffff99;
 }
 
+.chat__receiver {
+  background-color: #005c4b;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.chat__receiver .chat__name {
+  display: none;
+}
+
 .chat__input-container {
   background-color: #202c33;
-  padding: 10px 1.25rem;
-  position: fixed;
-  bottom: 1.5rem;
-  max-width: 935px;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #202c33;
+  padding: .75rem 1.25rem;
+  gap: .5rem;
+  /* justify-content: space-between;  */
 }
+
+.chat__input-container form{
+  flex: 1;
+  display: flex;
+}
+
+.chat__input-container form button{
+  display: none;
+}
+
+.message__input {
+  background-color: #2A3942;
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem;
+  border-radius: 7px;
+  flex: 1;
+}
+
+.message__input::placeholder {
+  color: #aebac1;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
