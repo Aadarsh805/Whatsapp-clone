@@ -3,12 +3,13 @@
   display: grid;
   place-items: center;
   background-color: #111B21;
+  overflow: hidden;
 }
 
 .app__body{
   display: flex;
   height: 95vh;
-  width: 100vh;
-  background-color: #202C33;
-  
+  width: 100vw;
+  max-width: 1500px;
+  background-color: #101A20;
 }

@@ -1,5 +1,135 @@
-.chat{
-    display: flex;
-    flex-direction: column;
-    flex: .65;
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex: 0.65;
+  position: relative;
 }
+
+.chat__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 1.5rem;
+  background-color: #202c33;
+}
+
+.chat__person {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chat__personInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.chat__personInfo h3 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #e2ede9;
+}
+
+.chat__personInfo p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #86969c;
+}
+
+.chat__body {
+  background: url(https://i.pinimg.com/originals/e6/29/25/e62925d2af795db245dffbc42e05296b.png)
+    no-repeat center center/cover;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.chat__body::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+.chat__body::-webkit-scrollbar-thumb {
+  background-color: #374045;
+}
+
+.chat__message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #202c33;
+  padding: 10px;
+  width: fit-content;
+  margin-left: 2rem;
+  margin-top: 1.5rem;
+  border-radius: 6px;
+}
+
+.chat__name {
+  color: #08bf8b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.chat__message-message {
+  color: #e9edef;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.chat__message {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.chat__time {
+  font-size: 0.7rem;
+  color: #ffffff99;
+}
+
+.chat__receiver {
+  background-color: #005c4b;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.chat__receiver .chat__name {
+  display: none;
+}
+
+.chat__input-container {
+  background-color: #202c33;
+  display: flex;
+  align-items: center;
+  background-color: #202c33;
+  padding: .75rem 1.25rem;
+  gap: .5rem;
+  /* justify-content: space-between;  */
+}
+
+.chat__input-container form{
+  flex: 1;
+  display: flex;
+}
+
+.chat__input-container form button{
+  display: none;
+}
+
+.message__input {
+  background-color: #2A3942;
+  border: none;
+  outline: none;
+  padding: 1rem 1.25rem;
+  border-radius: 7px;
+  flex: 1;
+}
+
+.message__input::placeholder {
+  color: #aebac1;
+  font-size: 1rem;
+  font-weight: 400;
+}
+

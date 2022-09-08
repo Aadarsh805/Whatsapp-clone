@@ -1,0 +1,28 @@
+.sidebarChat{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 5px 1.25rem;
+}
+
+.sidebarChat__info{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-bottom: 1px solid #86969c22;
+    width: 100%;
+    padding: 15px 0;
+    cursor: pointer;
+}
+
+.sidebarChat__info h2{
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #E2EDE9;
+}
+
+.sidebarChat__info p{
+    font-size: .95rem;
+    font-weight: 400;
+    color: #86969C;
+}
